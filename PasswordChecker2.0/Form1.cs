@@ -42,10 +42,20 @@ namespace PasswordChecker2._0
             {
                 complexity++;
             }
+            if (password.Any(char.IsWhiteSpace))
+            {
+                complexity++;
+            }
 
-            if (password.Length > 10 && complexity > 4)
+
+            if (password.Length > 10 & complexity > 4)
             {
                 lblResult.Text = "Good";
+                lblResult.BackColor = Color.Green;
+            }
+            else if (password.Length > 10 & complexity > 2)
+            {
+                lblResult.Text = "OK";
                 lblResult.BackColor = Color.LightGreen;
             }
             else
